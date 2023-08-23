@@ -1,0 +1,38 @@
+/* ImageList.css */
+.image-list-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.image-slider {
+    display: flex;
+    align-items: center;
+}
+
+.image-slider-frame {
+    overflow: hidden;
+    max-width: 90vw;
+    /* 뷰포트의 90% 너비 */
+    max-height: 40vh;
+    /* 뷰포트의 40% 높이 */
+    margin: 0 auto;
+    /* 가운데 정렬 */
+}
+
+.image-list-img {
+    width: 100%;
+    height: auto;
+    /* 이미지 높이 자동 조절 */
+    max-height: 100%;
+    /* 최대 이미지 높이는 프레임 높이에 맞게 조절 */
+    object-fit: cover;
+}
+
+button {
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+}

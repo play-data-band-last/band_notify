@@ -1,0 +1,38 @@
+/* Feed.css */
+
+.feed-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.feed-search {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+}
+
+.feed-search input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.feed-pagination {
+    display: flex;
+    gap: 10px;
+}
+
+.feed-post-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.feed-post-link:hover {
+    color: #0056b3;
+}
