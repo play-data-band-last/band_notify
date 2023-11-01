@@ -12,14 +12,31 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class CommunitySearchConsumer {
     private final NotifyService notifyService;
-    private Integer num = 0;
+    private Integer num0 = 0;
+    private Integer num1 = 0;
+    private Integer num2 = 0;
 
-    @KafkaListener(topics = TopicConfig.communityNotify)
-    public void listen(CommunityRequest communityRequest) {
-//        System.out.println("consumer : " + communityRequest);
-        System.out.println(num++);
+    @KafkaListener(topics = TopicConfig.communityNotify0)
+    public void listenA(CommunityRequest communityRequest) {
+        num0++;
+        System.out.println("consumer-notify0 합계 : " + num0);
         notifyService.sendNotify(communityRequest);
     }
+
+//    @KafkaListener(topics = TopicConfig.communityNotify1)
+//    public void listenB(CommunityRequest communityRequest) {
+////        System.out.println("consumer : " + communityRequest);
+//        num1++;
+//        System.out.println("consumer-notify1 합계 : " + num1);
+//        notifyService.sendNotify(communityRequest);
+//    }
+
+//    @KafkaListener(topics = TopicConfig.communityNotify2)
+//    public void listenC(CommunityRequest communityRequest) {
+//        num2++;
+//        System.out.println("consumer-notify2 합계 : " + num2);
+//        notifyService.sendNotify(communityRequest);
+//    }
 
 
 }
