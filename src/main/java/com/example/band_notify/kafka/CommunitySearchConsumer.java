@@ -1,5 +1,6 @@
 package com.example.band_notify.kafka;
 
+import com.example.band_notify.entity.Notify;
 import com.example.band_notify.entity.request.CommunityRequest;
 import com.example.band_notify.service.NotifyService;
 import lombok.RequiredArgsConstructor;
@@ -17,10 +18,10 @@ public class CommunitySearchConsumer {
     private Integer num2 = 0;
 
     @KafkaListener(topics = TopicConfig.communityNotify0)
-    public void listenA(CommunityRequest communityRequest) {
+    public void listenA(Notify notify) {
         num0++;
         System.out.println("consumer-notify0 합계 : " + num0);
-        notifyService.sendNotify(communityRequest);
+        notifyService.sendNotifyCommunityInsert(notify);
     }
 
 //    @KafkaListener(topics = TopicConfig.communityNotify1)
@@ -28,14 +29,14 @@ public class CommunitySearchConsumer {
 ////        System.out.println("consumer : " + communityRequest);
 //        num1++;
 //        System.out.println("consumer-notify1 합계 : " + num1);
-//        notifyService.sendNotify(communityRequest);
+//        notifyService.sendNotifyCommunityInsert(communityRequest);
 //    }
 
 //    @KafkaListener(topics = TopicConfig.communityNotify2)
 //    public void listenC(CommunityRequest communityRequest) {
 //        num2++;
 //        System.out.println("consumer-notify2 합계 : " + num2);
-//        notifyService.sendNotify(communityRequest);
+//        notifyService.sendNotifyCommunityInsert(communityRequest);
 //    }
 
 
