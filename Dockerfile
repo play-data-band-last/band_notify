@@ -1,6 +1,4 @@
-ARG VERSION
-FROM docker.elastic.co/elasticsearch/elasticsearch:${VERSION}
-USER root
-# Nori 플러그인 설치
-RUN bin/elasticsearch-plugin install analysis-nori
-USER elasticsearch
+FROM openjdk:17
+ARG JAR_FILE=build/libs/band_notify-0.0.1-SNAPSHOT.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]g
