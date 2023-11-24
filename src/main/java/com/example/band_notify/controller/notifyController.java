@@ -34,14 +34,19 @@ public class notifyController {
 //        return notifyService.findAllByMemberId(memberId, PageRequest.of(page,size));
 //    }
 
-    @PostMapping("/community")
-    public Page<Notify> findAllByCommunityId(
-            @RequestBody List<Long> communityIds,
-            @RequestParam(name = "page", required = false, defaultValue = "0") Integer page,
-            @RequestParam(name = "size", required = false, defaultValue = "10") Integer size
-    ){
-        System.out.println(communityIds);
-        return notifyService.findByAllCommunityId(communityIds, PageRequest.of(page,size));
+//    @PostMapping("/community")
+//    public Page<Notify> findAllByCommunityId(
+//            @RequestBody List<Long> communityIds,
+//            @RequestParam(name = "page", required = false, defaultValue = "0") Integer page,
+//            @RequestParam(name = "size", required = false, defaultValue = "10") Integer size
+//    ){
+//        System.out.println(communityIds);
+//        return notifyService.findByAllCommunityId(communityIds, PageRequest.of(page,size));
+//    }
+
+    @GetMapping("/community/{ownerId}")
+    public List<Notify> findAllByOwnerId(@PathVariable Long ownerId){
+        return notifyService.findAllByOwnerId(ownerId);
     }
 
     @PostMapping("/chageRead/{notifyId}")

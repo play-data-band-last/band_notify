@@ -12,10 +12,11 @@ import java.util.List;
 public interface NotifyRepository extends JpaRepository<Notify, Long> {
     Page<Notify> findAllByMemberId(Long memberId,PageRequest pageRequest);
 
-    @Query("select new com.example.band_notify.entity.Notify(c.id, c.communityId , c.memberId, c.memberName, c.communityName, c.memberProfileImg, c.message, c.currTime, c.flag, c.scheduledTime, c.isRead ) " +
+
+    @Query("select new com.example.band_notify.entity.Notify(c.id, c.ownerId, c.communityId , c.memberId, c.memberName, c.communityName, c.memberProfileImg, c.message, c.currTime, c.flag, c.scheduledTime, c.isRead ) " +
             "from Notify c " +
-            "where c.communityId in :communityIds " +
+            "where c.ownerId in :ownerId and c.isRead = false " +
             "order by c.currTime ")
-    Page<Notify> findAllByCommunityId(@Param("communityIds")List<Long> communityIds,PageRequest pageRequest);
+    List<Notify> findAllByOwnerId(@Param("ownerId")Long ownerId);
 
 }

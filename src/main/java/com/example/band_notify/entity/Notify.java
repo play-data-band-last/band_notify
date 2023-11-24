@@ -19,11 +19,14 @@ public class Notify {
     private long id;
     private long communityId;
     private long memberId;
+    private long ownerId;
     private String memberName;
     private String communityName;
     private String memberProfileImg;
     private String message;
     private LocalDateTime currTime;
+
+
     //  1 : 커뮤니티 가입 공지
     private Integer flag;
 

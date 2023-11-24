@@ -4,10 +4,10 @@ spring:
       host: localhost
       port: 6380
   kafka:
-    bootstrap-servers: 34.42.237.145:9093
+    bootstrap-servers: 34.121.154.179:9093
     consumer:
-      auto-offset-reset: latest
-      group-id: notify
+      auto-offset-rest: latest
+      group-id: notify-a
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
       properties:
@@ -16,15 +16,15 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
   datasource:
-    url: jdbc:mysql://34.42.237.145:3306/notify?serverTimezone=Asia/Seoul
+    url: jdbc:mysql://34.68.123.82:3306/notify?serverTimezone=Asia/Seoul
     username: root
     password: 1234
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
-  application:
-    name: BAND-NOTIFY-SERVICE
+#  application:
+#    name: BAND-NOTIFY-SERVICE
 
 server:
   port: 8000

@@ -40,9 +40,15 @@ public class NotifyService {
 //                // 예외를 던지거나 특정 에러 응답을 반환하는 등의 처리 가능
 //            }
 //        }
+        Notify save = notifyRepository.save(notify);
+        notify.setId(save.getId());
+
+        System.out.println("getCommunityId " + notify.getCommunityId());
+        System.out.println("getMemberId " + notify.getMemberId());
+
         sendingOperations.convertAndSend("/topic/notify/community/" + notify.getCommunityId(), notify);
 
-        notifyRepository.save(notify);
+
     }
 
     public List<Long> findByCommunityIdFromRedis(String communityId) {
@@ -55,8 +61,8 @@ public class NotifyService {
         return notifyRepository.findAllByMemberId(memberId, pageRequest);
     }
 
-    public Page<Notify> findByAllCommunityId(List<Long> communityIds, PageRequest pageRequest) {
-        return notifyRepository.findAllByCommunityId(communityIds, pageRequest);
+    public List<Notify> findAllByOwnerId(Long ownerId) {
+        return notifyRepository.findAllByOwnerId(ownerId);
     }
 
     public void changeMemberRead(Long notifyId) {
